@@ -1,0 +1,846 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.7;
+	font-family: 'Commissioner', sans-serif;
+	background: hsl(0, 0%, 98%);
+	scroll-behavior: smooth;
+}
+
+p{
+	letter-spacing: .5px;
+	color:hsl(0, 0%, 48%);
+}
+
+hr {
+	display: none;
+}
+
+button {
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+	background-color: hsl(176, 50%, 47%);
+	color: white;
+	border:none;
+	font-weight: 700;
+	min-width: 100px;
+}
+
+button:hover {
+	background-color:  hsl(176, 72%, 28%)	
+}
+
+button a {
+	text-decoration: none;
+	color: unset;
+}
+
+.outer-wrapper {
+	/*display: grid;*/
+}
+.nav-img {
+	position: absolute;
+	min-width: 100%;
+	z-index: -1;
+	top: 0;
+	left: 0;
+}
+
+nav {
+	background: url(images/image-hero-desktop.jpg);
+	background-size: cover;
+	padding:  3rem 4.5rem 0;
+	height: 59vh;
+}
+
+.nav-overlay {
+	display: none;
+	width: 100%;
+	height: 120%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient( to bottom, black , transparent);
+	z-index: 1;
+}
+
+.main {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	background: hsl(0, 0%, 98%);
+	border-radius: 10px;
+	padding-bottom: 4rem
+
+}
+
+.main > * {
+	background-color: white;
+	margin-bottom: 1.5rem;
+	border-radius: 10px;
+	flex: 1 1 50%;
+	max-width: 724px;
+	border: solid 1px hsl(0, 0%, 90%);
+}
+
+.intro {
+	text-align: center;
+	padding: 4rem 6.5rem;
+	padding-bottom: 3rem;
+	position: relative;
+	margin-top: calc(-1% + -4rem);
+}
+
+.intro img {
+	position: absolute;
+	top: -10%
+}
+
+.intro p {
+	margin-bottom: 2rem;
+}
+
+.bookmark {
+	background: hsl(0, 0%, 91%) no-repeat;
+	color: grey;
+	position: relative;
+	padding: 1rem 1rem 1rem 4rem;
+	font-weight: 800
+}
+
+.bookmark img {
+	position: absolute;
+	left: -3%;
+	top: -4%;
+} 
+
+.marked {
+	filter: invert(35%)
+			sepia(80%)
+			saturate(440%)
+			hue-rotate(12deg)
+			brightness(94%)
+			contrast(90%);
+}
+.bookmark-icon:hover,
+.bookmark:hover img {
+	filter: invert(79%) 
+			sepia(0%) 
+			saturate(153%) 
+			hue-rotate(156deg) 
+			brightness(85%) 
+			contrast(94%);
+		}
+
+.bookmark:hover,
+.bookmark.active:hover {
+	background-color: hsl(0, 0%, 95%) ;
+	color: lightgrey;
+}
+
+.bookmark.active {
+	color: hsl(176, 72%, 28%); 
+}
+
+.bookmark span {
+	display: none;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.row svg {
+	display: none;
+}
+.board-inner {
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem 3rem;
+	white-space: nowrap;
+}
+
+.board-inner > * { 
+	padding: 0 2rem;
+}
+
+.border {
+	border-left: 2px solid hsl(0, 0%, 80%);
+}
+
+.third {
+	margin: 0 4rem;
+}
+
+.meter {
+	background: hsl(0, 0%, 90%);
+	height: .7rem;
+	border-radius: 10px;
+	margin: 1rem 4rem 2rem;
+	position: relative;
+
+}
+
+.meter::after {
+	content: "";
+	width: 50%;
+	height: .7rem;
+	border-radius: 10px;
+	background: hsl(176, 50%, 47%);
+	position: absolute;
+	top: 0
+}
+
+.about {
+	padding: 2.5rem 3rem
+}
+
+.about h3 {
+	margin-bottom: 1.5rem
+}
+
+.option-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.option-reward {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.option {
+	border: 1px solid hsl(0, 0%, 90%) ;
+	border-radius: 10px;
+	margin-top: 2rem;
+	padding: 2rem
+}
+
+.cyan {
+	margin-bottom: 1rem;
+	color: hsl(176, 50%, 47%);
+	font-weight: 700
+}
+
+.option p {
+	margin-bottom: 1rem
+}
+
+.option-btn a {
+	min-width: 100px;
+}
+
+.remain {
+	margin-right: auto;
+	font-size: 1rem;
+	display: inline;
+	color: hsl(0, 0%, 70%);
+	margin-left: .5rem ;
+	font-weight: normal;
+	position: relative;
+	top: -5px
+}
+
+.hide {
+	position: fixed;
+	background:  rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-height: 100vh;
+	overflow-y: scroll;
+	display: none;
+	padding: 2rem
+}
+
+.closeBtn {
+	top: 4%;
+    right: 7%;
+    position: absolute;
+    transition: transform 1s;
+}
+
+.closeBtn:hover {
+	transform: rotate(240deg);
+}
+
+.selection {
+	background:white;
+	max-width: 750px;
+	padding: 2rem;
+	line-height: 1.7;
+	border-radius: 10px;
+	position: relative;
+	font-size: 15px;
+	margin: auto;
+}
+
+.selection-title {
+	margin-bottom: 1rem;
+	font-size: 21px;
+}
+
+.plan {
+	border: 1px solid hsl(0, 0%, 90%) ;
+	border-radius: 10px;
+	margin-top: 2rem;
+	transition: border 0.5s ease-in-out;
+  }
+
+.plan--active {
+	border-color: hsl(176, 50%, 47%); 
+}  
+
+  .plan__radio {
+  	width: 0;
+  	height: 0;
+  	display: block;
+  }
+
+  .plan__radio::before{
+  	content:"";
+  	width: 1.5em;
+  	height: 1.5em;
+  	border-radius: 100vh;
+  	border: 0.125em solid hsl(0, 0%, 80%);
+  	display: grid;
+  	margin: 2.5em 0 2em 2em;
+  }
+
+  .plan__radio:hover::before{
+  	border-color: hsl(176, 50%, 47%);
+  }
+
+  .plan__radio:checked::before{
+  	background: radial-gradient(hsl(176, 50%, 47%) 30%, rgba(255, 0, 0, 0) 37%);
+  }
+
+  .plan__top {
+  	padding: 2rem 1rem;
+  	margin-left: 4.5rem
+  }
+
+  .plan__title {
+  	display: flex;
+  	justify-content: space-between;
+  	font-weight: 800;
+  	margin-bottom: 1rem;
+  }
+
+  .plan--name {
+  	margin-right: 1rem;
+  	color: black;
+  	cursor: pointer;
+  }
+
+  .plan--name:hover {
+  	color: hsl(176, 50%, 47%);
+  }
+
+  .plan--price {
+  	margin-right: auto;
+  	margin-bottom: 0;
+  }
+
+  .plan--left{
+  	color: black;
+  }
+
+  .plan--left span {
+  	font-weight: normal;
+  	color: hsl(0, 0%, 70%);
+  }
+
+  .plan-info {
+  	margin-top: 1rem;
+  }
+
+  .plan__foot {
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 1rem;
+	border-top: 1px solid hsl(0, 0%, 90%);
+	position:relative;
+	display: flex;
+  }
+
+.test {
+	max-height: 155px;
+	overflow: hidden;
+	transition: max-height 1s ease-in;
+}
+
+  .plan__radio:checked ~ .test {
+  	max-height: 100vh;
+  }
+
+  .dollar {
+  	position: relative;
+  	margin-left: auto;
+  	margin-right: 1em;
+  }
+
+  .dollar::after {
+   content: "$";
+   display: block;
+   color: darkgrey;
+   z-index: 100;
+   position: absolute;
+   top:10px;
+   left: 20px;
+ }
+
+  .plan__text {
+  	max-width: 110px;
+	padding: 0.8rem 3em;
+	border-radius: 50px;
+	border: 1px solid hsl(0, 0%, 80%);
+	font-weight: 800;
+	outline: none;
+  }
+
+  .plan__text:hover {
+  	border: 1px solid hsl(176, 50%, 47%);
+  }
+
+  .plan__btn {
+  	padding: 1rem;
+  	width: 120px;
+  	font-size: 14px;
+  }
+
+  .plan--closed {
+  	position: relative;
+  }
+
+  .plan--closed::after {
+  	content: '';
+  	display: block;
+  	top: 0;
+  	left: 0;
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+  	background: white;
+  	opacity: 50%;
+  	overflow: hidden;
+  	border-radius: 10px;
+  }
+
+  .success {
+  	position: absolute;
+	background:  rgba(0,0,0,0.5);
+	top:0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 0 2rem;
+  }
+
+  .success__section {
+  	background: white;
+  	text-align: center;
+  	max-width: 500px;
+  	padding: 3rem 2rem;
+  	font-size: 15px;
+  	border-radius: 10px;
+  }
+
+  .success__section h2 {
+  	margin-top: 1rem ;
+  }
+
+  .success__section p {
+  	margin: 1rem auto 2rem;
+  }
+
+/*navbar*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: lightgrey;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: transparent;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+  border-color: transparent;
+}
+
+/*navbar media query*/
+
+@media screen and (max-width: 850px) {
+  .menu a:not(:last-child) {display: none;}
+  .menu a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .topnav.responsive {
+  	position: relative;
+  	z-index: 5;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0; 
+  }
+  .topnav {
+  	display: block;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+  }
+
+  .menu a + a {
+  	border-top: 1px solid hsl(0, 0%, 80%);
+  }
+
+  .menu {
+	background: white;
+	border-radius: 10px;
+	text-align: center;
+	font-weight: bolder;
+
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+	
+	p{
+		font-size: 13px;
+	}
+
+	nav {
+		background-image: url(images/image-hero-mobile.jpg);
+		padding: 1rem 1.5rem;
+		height: 58vh;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		position: relative;}
+
+	/*nav::before {
+		content: '';
+		width: 100%;
+		height: 95%;
+		background-color: #0c0b0b;
+		opacity: 10%;
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+	}*/
+
+	.bookmark {
+		display: none;
+	}
+
+	.intro {
+		padding: 1rem 0 1.5rem;
+		width: 315px;
+	}
+
+	.intro img {
+		width: 50px;
+	}
+
+	.intro h2 {
+		width: 243px;
+		text-align: center;
+		line-height: 1.3;
+		font-size: 18px;
+		margin: 2rem auto 0rem;
+		font-weight: 800;
+	}
+
+	.intro p {
+		margin: 1.3rem;
+	}
+
+	.intro img:first-child {
+		left: 50%;
+	}
+
+	.row {
+		display: inline-flex;
+	}
+
+	.row button {
+		min-width: 50%;
+		margin-right: 1rem;
+		font-size: 15px
+	}
+
+	.row svg {
+		display: block;
+	}
+
+	.board {
+		width: 315px;
+	}
+
+	.board-inner {
+		flex-direction: column;
+		text-align: center;
+		padding: 1rem 6rem 0rem;
+	}
+
+	.board-inner > div {
+		margin: 0;
+		padding: 1rem 0rem;
+		border-left: none;
+	}
+
+	.meter {
+		display: flex;
+		margin: 1rem 1rem 2rem
+	}
+
+	.meter::after {
+		
+	}
+
+	.board-inner hr {
+		display: block;
+		width: 1rem;
+		margin: auto;
+	}
+
+	.about {
+		padding: 1.8rem 1.5rem 1rem;
+		margin-right: 0;
+		/*width: 315px;*/
+	}
+
+	.about h3 {
+		font-size: 16px;
+		font-weight: 800;
+		margin-bottom: 1rem
+	}
+
+	.about p {
+		width: 50vh;
+		font-size: 13px;
+		margin-right: 0
+	}
+
+	.options p {
+		width: 41vh;
+	}
+
+	.about p + br {
+		display: none;
+	}
+
+	.option-title {
+		flex-flow: column;
+		align-items: flex-start;
+		font-size: 13px;
+		font-weight: bolder;
+	}
+
+	.option-title h3 {
+		font-size: 13px;
+		margin-bottom: 0;
+		font-weight: 800;
+	}
+
+	.option {
+		padding: 1.5rem;
+	}
+
+	.option h1 {
+		font-size: 25px;
+		margin-bottom: 1rem;
+	}
+
+	.remain {
+		font-size: 14px;
+	}
+
+	.option p {
+		margin-right: -1rem;
+		min-width: min-content;	
+	}
+
+	.option-reward {
+		flex-flow: column;
+		align-items: flex-start;
+	}
+
+	button {
+		font-size: 12px;
+	}
+
+	.thisproject {
+		font-size: 14px;
+	}
+
+	/*hide*/
+
+	.selection {
+		width: 335px;
+		padding: 2em 1.5em;
+		line-height: 1.8;
+	}
+
+	.selection-title {
+		font-size: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.plan__top {
+		position: relative;
+		padding: 2rem 1.5rem;
+		margin-left: 0;
+		padding-bottom: 4.5em; 
+	}
+
+	.plan__title {
+		margin-bottom: 1.5rem;
+		flex-direction: column;
+		font-size: 0.687rem;
+		margin-right: 0;
+	}
+
+	.plan--name {
+		margin-left: 2.5rem;
+		margin-right: 0;
+	}
+
+	.plan--left {
+		position: absolute;
+		bottom: 1.5em;
+		font-size: 1rem;
+	}
+
+	.plan--price {
+		margin: 0 0 0 2.5rem ;
+	}
+
+	.plan__radio::before {
+		margin-right: 1rem;
+		position: relative;
+		left: -0.3rem;
+		bottom: -0.6rem;
+		margin-right: 0;
+	}
+
+	.plan:first-child .plan__radio::before {
+		bottom: 0rem;
+	}
+
+	.plan:first-child .plan__top {
+		padding-bottom: 2rem;
+	}
+
+	.plan__price {
+		font-size: 14px;
+	}
+
+	.plan__info {
+		margin-left: 0;
+		width: 30ch;
+		font-size: 13px;
+	}
+
+    .plan__foot {
+    	flex-wrap: wrap;
+    }
+
+    .plan__foot p {
+    	width: 100%;
+    	text-align: center;
+    	margin-bottom: 1rem;
+    }
+
+    .plan__text {
+    	margin-left: 0;
+    }
+
+    .project {
+    	width: 274px
+    }
+
+    .test {
+    	max-height: 286.82px;
+    }
+
+    .success__section {
+    	padding: 1.4rem 1.5rem;
+    }
+
+    .success__section h2 {
+    	font-size: 1rem;
+    }
+
+    .closeBtn {
+    	top: 2%;
+    	right: 7%;
+    }
+}
+
+  @media screen and (min-width: 501px) and (max-width: 710px){
+  	  .intro {
+  	  	width: 620px;
+  	  }
+  }
+
+
+
+.selection-title p {
+	font-size: 1rem;
+}
+
+
+
+.scroll-off {
+	overflow: hidden;
+}
+
